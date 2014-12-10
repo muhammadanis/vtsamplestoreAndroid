@@ -127,6 +127,8 @@ public class FragmentCheckout extends Fragment implements  View.OnClickListener{
                             });
                             webView.loadUrl(token.getRedirect_url());
 
+                            
+
 
                             AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
                             alert.setTitle("3D Secure Veritrans");
@@ -138,6 +140,7 @@ public class FragmentCheckout extends Fragment implements  View.OnClickListener{
                                     dialog.dismiss();
                                 }
                             });
+
                             alert.show();
 
                         }
