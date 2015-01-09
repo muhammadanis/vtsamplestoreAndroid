@@ -241,12 +241,17 @@ public class FragmentCheckout extends Fragment implements  View.OnClickListener{
                 sendServerProgress.dismiss();
             }
 
-            VTRestResponse response = new Gson().fromJson(restResponse,VTRestResponse.class);
-            if(response.status.equalsIgnoreCase("success")){
-                Toast.makeText(getActivity(),"Success To Add payment: "+response.body.order_id,Toast.LENGTH_SHORT).show();
-            }else{
+            try{
+                VTRestResponse response = new Gson().fromJson(restResponse,VTRestResponse.class);
+                if(response.status.equalsIgnoreCase("success")){
+                    Toast.makeText(getActivity(),"Success To Add payment: "+response.body.order_id,Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getActivity(),"Failed to Pay",Toast.LENGTH_SHORT).show();
+                }
+            }catch (Exception ex){
                 Toast.makeText(getActivity(),"Failed to Pay",Toast.LENGTH_SHORT).show();
             }
+
         }
     }
 
